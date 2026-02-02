@@ -1,0 +1,8 @@
+*.dll
+*.exe
+*.c
+*.h
+*.mat
+*.txt
+/Distribution
+/platforms
