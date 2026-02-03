@@ -114,6 +114,7 @@ package ComprehendFeMetabolism
     parameter Real v_duo_max(unit="uq.h-1") = 9.86 "Maximal duodenal uptake from food (SI. Eq.14)";
     parameter Real Fe_food(unit="ug.h-1") = 218.6322 "Food iron content (SI. Eq.14), default: 218.6322";
 
+    
     // Pathophysiology parameters
     //################################################
 
@@ -178,6 +179,7 @@ package ComprehendFeMetabolism
     //   elseif Fpn_res_exp == exprese.Fyziologicka then 1
     //   else 2;
 
+    
     // Auxiliary variables
     // ###############################################
 
@@ -509,18 +511,18 @@ package ComprehendFeMetabolism
     input Real Freg1_i2;
     output Real Freg1_o1 "result";
   algorithm 
-    Freg1_o1 := 1 + FeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
-      537.649 + FeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*4972.6
-       + FeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*584.75 +
-      FeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
-      FeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*537.649*4972.6
-       + FeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
-      FeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*537.649*584.75*
-      5.3869 + FeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*
-      FeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*4972.6*584.75 +
-      FeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
-      FeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*
-      FeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*537.649*4972.6*
+    Freg1_o1 := 1 + ComprehendFeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
+      537.649 + ComprehendFeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*4972.6
+       + ComprehendFeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*584.75 +
+      ComprehendFeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
+      ComprehendFeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*537.649*4972.6
+       + ComprehendFeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
+      ComprehendFeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*537.649*584.75*
+      5.3869 + ComprehendFeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*
+      ComprehendFeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*4972.6*584.75 +
+      ComprehendFeMetabolism.facB1(facB1_i1=Freg1_i1, facB1_i2=Freg1_i2)*
+      ComprehendFeMetabolism.facB2(facB2_i1=Freg1_i1, facB2_i2=Freg1_i2)*
+      ComprehendFeMetabolism.facST(facST_i1=Freg1_i1, facST_i2=Freg1_i2)*537.649*4972.6*
       584.75*5.3869;
   end Freg1;
 
@@ -615,7 +617,5 @@ package ComprehendFeMetabolism
   algorithm
     MAX_o1 := (MAX_i1 + MAX_i2 + abs(MAX_i1 - MAX_i2))/2;
   end MAX;
-
-
 
 end ComprehendFeMetabolism;
